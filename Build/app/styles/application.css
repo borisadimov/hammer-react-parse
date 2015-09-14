@@ -1,0 +1,36 @@
+@import url(tools/normalize.css);
+html, body {
+  margin: 20px; }
+  html *, body * {
+    box-sizing: border-box; }
+
+.react-tabs [role=tablist] {
+  margin: 0; }
+  .react-tabs [role=tablist] li[role=tab][aria-selected=true] {
+    border-bottom: 1px solid #aaa; }
+
+.documentBox {
+  display: flex;
+  flex-flow: row nowrap;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  min-height: 600px; }
+
+.documentList {
+  min-height: 600px;
+  flex: 0 0 200px;
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  overflow: hidden; }
+  .documentList .document {
+    padding: 10px 30px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer; }
+    .documentList .document.active {
+      font-weight: bold; }
+
+.documentPreview {
+  flex: 1 0;
+  padding: 30px; }
+  .documentPreview img {
+    width: 100%; }
