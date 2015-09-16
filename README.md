@@ -220,6 +220,13 @@ html, body
   padding: 30px
   img
     width: 100%
+
+.documentBoxDefaultState
+  width: 100%
+  padding: 10px 20px
+  font-size: 2rem
+  text-align: center
+
 ```
 
 #### Include app, document-browser components and styles into index.slim
@@ -296,6 +303,30 @@ Parse.initialize("M48MDA352i6cXXXXXXXXXXXXXXtjt6fN4KlFSumT",
 
 ````
 
+##### We can add some default state for this component
+```
+
+  render: function() {
+
+    var preview;
+      if (this.state.activeDocId != -1){
+        preview = <Preview imageSrc={this.state.previewImage} documentUrl={this.state.documentUrl}/>;
+      } else {
+        preview = (
+          <div className="documentBoxDefaultState">
+            Select a document, please.
+          </div>
+        )
+      }
+
+    return (
+      <div className="documentBox">
+        <DocumentList activeId={this.state.activeDocId} data={this.data.documents} activeChange={this.handleActiveChange}/>
+        {preview}
+      </div>
+    );
+  }
+```
 > Also, you can install jsx-transformer. Run `npm install -g react-tools` in the terminal. Set your precompiler directory with `jsx js/app/ js/build/` and change react components source pathes in index.slim
 
 
